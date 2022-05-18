@@ -1,10 +1,7 @@
-from typing import Union
 from fastapi import FastAPI
 import transformers
 import os
 import datetime
-import numpy as np
-# from main import ChatBot
 
 class ChatBot():
     def __init__(self, name):
@@ -81,14 +78,6 @@ async def chat_session(user_msg):
 
     elif "what is upwork?" in ai.text:
         res = "Upwork, formerly Elance-oDesk, is an American freelancing platform. In 2015, the Elance-oDesk merger was rebranded as Upwork and the company's full name is now Upwork Global Inc."
-
-        ## respond politely
-    elif any(i in ai.text for i in ["thank", "thanks"]):
-        res = np.random.choice(
-            ["you're welcome!", "anytime!", "no problem!", "cool!", "I'm here if you need me!", "mention not"])
-
-    elif any(i in ai.text for i in ["exit", "close", "bye"]):
-        res = np.random.choice(["Tata", "Have a good day", "Bye", "Goodbye", "Hope to meet soon", "peace out!"])
 
     ## conversation
     else:
